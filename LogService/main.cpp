@@ -1,38 +1,32 @@
 #include <QCoreApplication>
 #include <logger.h>
-#include <QTextStream>
-#include <QTextStream>
 #include <QThread>
 #include <controller.h>
-QTextStream cout(stdout);
-QTextStream cin(stdin);
-
+#include <QTextStream>
 
 
 int main(int argc, char *argv[])
 {  
+    QTextStream cout(stdout);
+    QTextStream cin(stdin);
     QCoreApplication a(argc, argv);
-
-
     Controller controller;
+
+    cout<<"Enter the message for logs";
+    controller.string = cin.readLine();
+    cout<<"Do you wanna write logs in file? Y(Yes)/N(No)\n";
+    QString res = cin.readLine();
+    if(res == "Y")
+        controller.isWrittenInFile = true;
+    else if(res == "N")
+        controller.isWrittenInFile = false;
+    else{
+        cout<<"Incorrect, try again";
+        exit(0);
+    }
+
+
     controller.thCreator();
-
-
-
-
-
-//    QString res;
-
-//    cout<<"Do you wanna write logs in file? Y(Yes)/N(No)\n";
-//    res = cin.readLine();
-
-//    if(res == "Y")
-//        writeFile = true;
-//    else if(res == "N")
-//        writeFile = false;
-//    else
-//        cout<<"Incorrect, try again";
-
 
 
     return a.exec();

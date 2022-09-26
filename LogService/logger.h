@@ -9,8 +9,9 @@ private:
     Logger();
 
 public:
-    void log(bool writeFile);
+    void log(bool writeFile, QString str);
     static Logger &getInstance();
+
 
 public slots:
     void start();

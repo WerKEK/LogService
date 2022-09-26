@@ -1,22 +1,29 @@
 #include "logger.h"
 #include <QDebug>
 #include <QFile>
+#include <QTextStream>
+QTextStream cout(stdout);
+QTextStream cin(stdin);
 
 Logger::Logger()
 {
 
 }
 
-void Logger::log(bool writeFile)
+void Logger::log(bool writeFile, QString str)
 {
+    QByteArray ba = str.toLocal8Bit();
+    const char *c_str = ba.data(); //Преобразование для записи в файл
+
+
     if(writeFile){
         QFile file("E:/Projects/logFile.txt");
         file.open(QIODevice::WriteOnly | QIODevice::Append);
-        file.write("Logs was used\n");
+        file.write(c_str);
         file.close();
     }
 
-    qDebug() << "Logs was used\n";
+    cout << str + "\n";
 }
 
 Logger &Logger::getInstance()
@@ -24,4 +31,5 @@ Logger &Logger::getInstance()
     static Logger res; //Статик вызывается один раз
     return res;
 }
+
 
