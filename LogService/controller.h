@@ -10,11 +10,19 @@ class Controller : public QObject
 
 public:
     Controller* controller;
-    QString string;
-    bool isWrittenInFile;
+
     explicit Controller(QObject *parent = nullptr);
     void doLogs();
     void thCreator();
+
+    QString getString();
+    bool getIsWrittenFile();
+    void setString(QString value);
+    void setIsWrittenInFile(bool value);
+
+private:
+    QString string;
+    bool isWrittenInFile;
 
 signals:
 

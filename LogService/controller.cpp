@@ -23,3 +23,23 @@ void Controller::thCreator()
     thread->start();
 }
 
+QString Controller::getString()
+{
+    return string;
+}
+
+bool Controller::getIsWrittenFile()
+{
+    return isWrittenInFile;
+}
+
+void Controller::setString(QString value)
+{
+    string = value;
+}
+
+void Controller::setIsWrittenInFile(bool value)
+{
+    isWrittenInFile = value;
+}
+

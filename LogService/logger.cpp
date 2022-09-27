@@ -1,9 +1,8 @@
 #include "logger.h"
 #include <QDebug>
 #include <QFile>
-#include <QTextStream>
-QTextStream cout(stdout);
-QTextStream cin(stdin);
+#include <iostream>
+
 
 Logger::Logger()
 {
@@ -23,7 +22,7 @@ void Logger::log(bool &writeFile, QString &str)
         file.close();
     }
 
-    cout << str + "\n";
+    std::cout << std::endl << str.toStdString() << std::endl;
 }
 
 Logger &Logger::getInstance()
