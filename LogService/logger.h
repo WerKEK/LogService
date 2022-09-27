@@ -9,7 +9,7 @@ private:
     Logger();
 
 public:
-    void log(bool writeFile, QString str);
+    void log(bool &writeFile, QString &str);
     static Logger &getInstance();
 
 

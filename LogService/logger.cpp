@@ -10,7 +10,7 @@ Logger::Logger()
 
 }
 
-void Logger::log(bool writeFile, QString str)
+void Logger::log(bool &writeFile, QString &str)
 {
     QByteArray ba = str.toLocal8Bit();
     const char *c_str = ba.data(); //Преобразование для записи в файл
