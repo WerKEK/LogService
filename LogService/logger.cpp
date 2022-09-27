@@ -9,20 +9,20 @@ Logger::Logger()
 
 }
 
-void Logger::log(bool &isWriteFile, QString &str)
+void Logger::log(bool w, QString s)
 {
-    QByteArray ba = str.toLocal8Bit();
+    QByteArray ba = s.toLocal8Bit();
     const char *c_str = ba.data(); //Преобразование для записи в файл
 
 
-    if(isWriteFile){
+    if(w){
         QFile file("E:/Projects/logFile.txt");
         file.open(QIODevice::WriteOnly | QIODevice::Append);
         file.write(c_str);
         file.close();
     }
 
-    std::cout << std::endl << str.toStdString() << std::endl;
+    std::cout << std::endl << s.toStdString() << std::endl;
 }
 
 Logger &Logger::getInstance()

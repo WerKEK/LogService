@@ -9,15 +9,9 @@ private:
     Logger();
 
 public:
-    void log(bool &isWriteFile, QString &str);
+    void log(bool w, QString s);
     static Logger &getInstance();
 
-
-public slots:
-    void start();
-
-signals:
-    void started();
 };
 
 #endif // LOGGER_H

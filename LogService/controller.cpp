@@ -9,8 +9,12 @@ Controller::Controller(QObject *parent) : QObject(parent)
 
 void Controller::doLogs()
 {
+    //bool w = true;
+    //QString s = "123";
+    bool w = getIsWrittenFile();
+    QString s = getString();
     for(int i = 0;i < 10;i++){
-        Logger::getInstance().log(isWrittenInFile, string); //Вызов логов
+        Logger::getInstance().log(w, s); //Вызов логов
     }
 }
 

@@ -11,8 +11,9 @@ class Controller : public QObject
 public:
     Controller* controller;
 
+
     explicit Controller(QObject *parent = nullptr);
-    void doLogs();
+
     void thCreator();
 
     QString getString();
@@ -20,12 +21,11 @@ public:
     void setString(QString value);
     void setIsWrittenInFile(bool value);
 
+    void doLogs();
+
 private:
     QString string;
     bool isWrittenInFile;
-
-signals:
-
 };
 
 #endif // CONTROLLER_H
