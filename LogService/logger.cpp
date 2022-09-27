@@ -9,13 +9,13 @@ Logger::Logger()
 
 }
 
-void Logger::log(bool &writeFile, QString &str)
+void Logger::log(bool &isWriteFile, QString &str)
 {
     QByteArray ba = str.toLocal8Bit();
     const char *c_str = ba.data(); //Преобразование для записи в файл
 
 
-    if(writeFile){
+    if(isWriteFile){
         QFile file("E:/Projects/logFile.txt");
         file.open(QIODevice::WriteOnly | QIODevice::Append);
         file.write(c_str);
