@@ -2,19 +2,19 @@
 #define LOGGER_H
 
 #include <QObject>
+#include <QThread>
 
-class Logger
+class Logger : public QThread
 {
+
+public:
+    static Logger* getInstance();
+    void log(bool, QString);
+    QThread *th = new QThread();
+    void run(bool, QString);
 
 private:
     Logger();
-
-public:
-
-    static Logger* getInstance();
-
-public slots:
-    void log(bool, QString);
 
 };
 

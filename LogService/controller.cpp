@@ -10,23 +10,11 @@ Controller::Controller()
 
 void Controller::doLogs()
 {
+    std::cout<<"Name of Controller's thread: "<<QThread::currentThreadId()<<std::endl;
     for(int i = 0;i < 10;i++){
-        Logger::getInstance()->log(getIsWrittenFile(),getString()); //Вызов логов
-        std::cout<<QThread::currentThreadId();
+        Logger::getInstance()->run(getIsWrittenFile(),getString()); //Вызов логов
     }
 }
-
-//void Controller::thCreator()
-//{
-//    controller = new Controller();
-
-//    controller->setIsWrittenInFile(isWrittenInFile);
-//    controller->setString(string);
-//    controller->moveToThread(controller);
-
-//    connect(controller, &Controller::started, controller, &Controller::doLogs);
-//    controller->start();
-//}
 
 void Controller::run(){
     doLogs();

@@ -35,12 +35,13 @@ int main(int argc, char *argv[])
         exit(0);
     }
 
-    std::cout<<QThread::currentThreadId();
+    std::cout<<"Name of Main's thread: "<<QThread::currentThreadId()<<std::endl;
     controller->setString(qString);
     controller->setIsWrittenInFile(wif);
 
     controller->start();
+
     //controller->thCreator();
-    std::cout<<std::endl<<"Logging is done"<<std::endl;
+    //std::cout<<std::endl<<"Logging is done"<<std::endl;
     return a.exec();
 }

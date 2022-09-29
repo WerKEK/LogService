@@ -13,9 +13,7 @@ public:
     Controller* controller;
 
     explicit Controller();
-    //explicit Controller(QObject *parent = nullptr);
 
-    void thCreator();
 
     QString getString();
     bool getIsWrittenFile();
@@ -24,8 +22,6 @@ public:
 
     void doLogs();
     void run();
-signals:
-    void startLogs(bool, QString);
 
 private:
     QString string;
