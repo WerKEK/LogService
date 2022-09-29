@@ -3,30 +3,22 @@
 #include <QThread>
 #include <iostream>
 
-Controller::Controller(QObject *parent) : QObject(parent)
+Controller::Controller()
 {
 
 }
 
 void Controller::doLogs()
 {
-    bool w = getIsWrittenFile();
-    QString s = getString();
     for(int i = 0;i < 10;i++){
-        Logger::getInstance().log(w,s); //Вызов логов
+        Logger::getInstance()->log(getIsWrittenFile(),getString()); //Вызов логов
         std::cout<<QThread::currentThreadId();
     }
 }
 
-void Controller::thCreator()
-{
-    controller = new Controller();
-    controller->setIsWrittenInFile(isWrittenInFile);
-    controller->setString(string);
-    QThread* thread = new QThread();
-    controller->moveToThread(thread);
-    connect(thread, &QThread::started, controller, &Controller::doLogs);
-    thread->start();
+
+void Controller::run(){
+    doLogs();
 }
 
 QString Controller::getString()

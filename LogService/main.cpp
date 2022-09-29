@@ -38,7 +38,9 @@ int main(int argc, char *argv[])
     std::cout<<QThread::currentThreadId();
     controller->setString(qString);
     controller->setIsWrittenInFile(wif);
-    controller->thCreator();
+
+    controller->start();
+    //controller->thCreator();
     std::cout<<std::endl<<"Logging is done"<<std::endl;
     return a.exec();
 }

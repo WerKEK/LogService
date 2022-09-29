@@ -305,7 +305,8 @@ release/logger.o: logger.cpp logger.h \
 		../../../QT/5.12.12/mingw73_64/include/QtCore/QFile \
 		../../../QT/5.12.12/mingw73_64/include/QtCore/qfile.h \
 		../../../QT/5.12.12/mingw73_64/include/QtCore/qfiledevice.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/QTextStream
+		../../../QT/5.12.12/mingw73_64/include/QtCore/QThread \
+		../../../QT/5.12.12/mingw73_64/include/QtCore/qthread.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\logger.o logger.cpp
 
 release/main.o: main.cpp ../../../QT/5.12.12/mingw73_64/include/QtCore/QCoreApplication \
@@ -364,22 +365,7 @@ release/main.o: main.cpp ../../../QT/5.12.12/mingw73_64/include/QtCore/QCoreAppl
 		../../../QT/5.12.12/mingw73_64/include/QtCore/QObject \
 		../../../QT/5.12.12/mingw73_64/include/QtCore/QThread \
 		../../../QT/5.12.12/mingw73_64/include/QtCore/qthread.h \
-		controller.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/QTextStream \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qtextstream.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qiodevice.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qlocale.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qvariant.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qmap.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qdebug.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qhash.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qvector.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qpoint.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qset.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qcontiguouscache.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qsharedpointer.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qshareddata.h \
-		../../../QT/5.12.12/mingw73_64/include/QtCore/qsharedpointer_impl.h
+		controller.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o main.cpp
 
 release/moc_controller.o: release/moc_controller.cpp 

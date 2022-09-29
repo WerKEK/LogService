@@ -10,8 +10,11 @@ private:
     Logger();
 
 public:
-    void log(bool w, QString s);
-    static Logger &getInstance();
+
+    static Logger* getInstance();
+
+public slots:
+    void log(bool, QString);
 
 };
 

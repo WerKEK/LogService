@@ -2,8 +2,9 @@
 #define CONTROLLER_H
 
 #include <QObject>
+#include <QThread>
 
-class Controller : public QObject
+class Controller : public QThread
 {
     Q_OBJECT
 
@@ -11,8 +12,8 @@ class Controller : public QObject
 public:
     Controller* controller;
 
-
-    explicit Controller(QObject *parent = nullptr);
+    explicit Controller();
+    //explicit Controller(QObject *parent = nullptr);
 
     void thCreator();
 
@@ -22,6 +23,9 @@ public:
     void setIsWrittenInFile(bool value);
 
     void doLogs();
+    void run();
+signals:
+    void startLogs(bool, QString);
 
 private:
     QString string;

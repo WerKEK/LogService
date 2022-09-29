@@ -23,10 +23,10 @@ void Logger::log(bool w, QString s)
     std::cout << std::endl << s.toStdString() << std::endl;
 }
 
-Logger &Logger::getInstance()
+Logger *Logger::getInstance()
 {
     static Logger res; //Статик вызывается один раз
-    return res;
+    return &res;
 }
 
 
