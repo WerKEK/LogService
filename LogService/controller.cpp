@@ -16,6 +16,17 @@ void Controller::doLogs()
     }
 }
 
+//void Controller::thCreator()
+//{
+//    controller = new Controller();
+
+//    controller->setIsWrittenInFile(isWrittenInFile);
+//    controller->setString(string);
+//    controller->moveToThread(controller);
+
+//    connect(controller, &Controller::started, controller, &Controller::doLogs);
+//    controller->start();
+//}
 
 void Controller::run(){
     doLogs();
