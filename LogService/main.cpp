@@ -22,11 +22,11 @@ int main(int argc, char *argv[])
 
     std::cout<<std::endl<<"Do you wanna write logs in file? Y(Yes)/N(No)"<<std::endl;
     std::cin>>res; //Считываю строку, записывать в файл или нет
-    if(res == "Y"){
+    if(res == "Y" || res == "y"){
         //controller->setIsWrittenInFile(true); //Перевод в бул
         wif = true;
     }
-    else if(res == "N"){
+    else if(res == "N" || res == "n"){
         //controller->setIsWrittenInFile(false);
         wif = false;
     }
@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
         exit(0);
     }
 
+    std::cout<<QThread::currentThreadId();
     controller->setString(qString);
     controller->setIsWrittenInFile(wif);
     controller->thCreator();
