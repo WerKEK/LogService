@@ -11,10 +11,20 @@ public:
     static Logger* getInstance();
     void log(bool, QString);
     QThread *th = new QThread();
-    void run(bool, QString);
+    void run();
+
+
+    QString getString();
+    bool getIsWrittenFile();
+    void setString(QString value);
+    void setIsWrittenInFile(bool value);
+    void sentData(bool, QString);
+    void startLogs();
 
 private:
     Logger();
+    QString string;
+    bool isWrittenInFile;
 
 };
 

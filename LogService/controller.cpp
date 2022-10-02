@@ -11,9 +11,7 @@ Controller::Controller()
 void Controller::doLogs()
 {
     std::cout<<"Name of Controller's thread: "<<QThread::currentThreadId()<<std::endl;
-    for(int i = 0;i < 10;i++){
-        Logger::getInstance()->run(getIsWrittenFile(),getString()); //Вызов логов
-    }
+    Logger::getInstance()->sentData(getIsWrittenFile(),getString()); //Вызов логов
 }
 
 void Controller::run(){
