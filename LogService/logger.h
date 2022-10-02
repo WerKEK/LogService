@@ -19,6 +19,7 @@ public:
     void setString(QString value);
     void setIsWrittenInFile(bool value);
     void sentData(bool, QString);
+    void infinityQueue();
 
 private:
     Logger();

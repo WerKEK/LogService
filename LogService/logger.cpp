@@ -7,26 +7,21 @@
 
 void Logger::log(bool w, QString s)
 {
-    QEventLoop* el = new QEventLoop();
-    el->wakeUp();
     QByteArray ba = s.toLocal8Bit();
     const char *c_str = ba.data(); //Преобразование для записи в файл
-    for(int i = 0; i< 5; i++){
-        if(w){
-            QFile file("E:/Projects/logFile.txt");
-            file.open(QIODevice::WriteOnly | QIODevice::Append);
-            file.write(c_str);
-            file.close();
-        }
-        std::cout<<std::endl<<std::endl<<"Name of log's thread: "<<QThread::currentThreadId()<<std::endl;
-        std::cout<< s.toStdString() << std::endl;
+    if(w){
+        QFile file("E:/Projects/logFile.txt");
+        file.open(QIODevice::WriteOnly | QIODevice::Append);
+        file.write(c_str);
+        file.close();
     }
-    el->exec();
+    std::cout<<std::endl<<std::endl<<"Name of log's thread: "<<QThread::currentThreadId()<<std::endl;
+    std::cout<< s.toStdString() << std::endl;
 }
 
 void Logger::run()
 {
-    log(getIsWrittenFile(), getString());
+    infinityQueue();
 }
 
 
@@ -34,7 +29,15 @@ void Logger::sentData(bool w, QString s)
 {
     setIsWrittenInFile(w);
     setString(s);
-    start();
+    if(!getInstance()->isRunning())
+        start();
+}
+
+void Logger::infinityQueue()
+{
+    while(true){
+        log(isWrittenInFile, string);
+    }
 }
 
 
