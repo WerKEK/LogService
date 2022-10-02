@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 {  
     QCoreApplication a(argc, argv);
     Controller *controller = new Controller();
+    Controller *controller2 = new Controller();
     std::string res;
 
     std::string str;
@@ -40,6 +41,7 @@ int main(int argc, char *argv[])
     controller->setIsWrittenInFile(wif);
 
     controller->start();
+    controller2->start();
 
     //controller->thCreator();
     //std::cout<<std::endl<<"Logging is done"<<std::endl;
