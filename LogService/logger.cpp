@@ -2,22 +2,26 @@
 #include <iostream>
 #include <QFile>
 #include <QThread>
+#include <QEventLoop>
 
 
 void Logger::log(bool w, QString s)
 {
+    QEventLoop* el = new QEventLoop();
+    el->wakeUp();
     QByteArray ba = s.toLocal8Bit();
     const char *c_str = ba.data(); //Преобразование для записи в файл
-    for(int i = 0; i< 10; i++){
+    for(int i = 0; i< 5; i++){
         if(w){
             QFile file("E:/Projects/logFile.txt");
             file.open(QIODevice::WriteOnly | QIODevice::Append);
             file.write(c_str);
             file.close();
         }
-        std::cout<<"Name of log's thread: "<<QThread::currentThreadId()<<std::endl<<std::endl;
-        std::cout << std::endl << s.toStdString() << std::endl;
+        std::cout<<std::endl<<std::endl<<"Name of log's thread: "<<QThread::currentThreadId()<<std::endl;
+        std::cout<< s.toStdString() << std::endl;
     }
+    el->exec();
 }
 
 void Logger::run()
@@ -33,18 +37,9 @@ void Logger::sentData(bool w, QString s)
     start();
 }
 
-void Logger::startLogs()
-{
-    if(!getInstance()->isRunning()){
-        getInstance()->exec();
-        std::cout<<"Name of started thread: "<<QThread::currentThreadId()<<std::endl<<std::endl;
-        log(getIsWrittenFile(),getString());
-    }
-}
 
 Logger *Logger::getInstance()
 {
-
     static Logger res; //Статик вызывается один раз
     return &res;
 }
